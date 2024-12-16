@@ -1,0 +1,34 @@
+pandas==2.1.4
+numpy==1.26.4
+plotly==5.15.0
+nbformat==5.10.4
+matplotlib==3.7.1
+scikit-learn==1.3.2
+tqdm==4.66.5
+transformers==4.46.3
+portion==2.6.0
+tensorflow==2.10
+
+
+# Library for requirements
+pip-tools==7.4.1
+
+# Notebooks libraries
+ipykernel==6.29.5
+
+
+# Torch with CUDA 11.3
+certifi==2024.8.30
+charset-normalizer==3.4.0
+idna==3.10
+pillow==11.0.0
+pip==24.3.1
+requests==2.32.3
+setuptools==65.5.0
+torch==1.12.1+cu113
+torchaudio==0.12.1+cu113
+torchvision==0.13.1+cu113
+typing_extensions==4.12.2
+urllib3==2.2.3
+
+--extra-index-url https://download.pytorch.org/whl/cu113

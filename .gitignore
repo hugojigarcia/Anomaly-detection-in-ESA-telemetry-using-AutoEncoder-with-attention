@@ -1,0 +1,12 @@
+personal_tests/*
+
+*.h5
+*.pth
+*.csv
+venv
+*\__pycache__
+
+
+data/**
+!data/**/
+!data/**/*.gitkeep
