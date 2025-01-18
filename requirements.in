@@ -10,6 +10,18 @@ portion==2.6.0
 tensorflow==2.10
 
 
+# Dashboard
+dash==2.9.3
+dash-bootstrap-components==1.6.0
+polars==1.19.0
+plotly-resampler==0.10.0
+pyarrow==18.1.0
+jupyter-dash==0.4.2
+
+
+# Experiments tracking
+wandb==0.19.1
+
 # Library for requirements
 pip-tools==7.4.1
 
