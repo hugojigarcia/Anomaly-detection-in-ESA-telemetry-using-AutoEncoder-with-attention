@@ -214,4 +214,10 @@ class ESAScores():
         for b in self._betas:
             result_dict[f"AFF_F_{b:.2f}"] = ((1 + b ** 2) * precision * recall) / (b ** 2 * precision + recall)
 
+        result_dict["tp"] = true_positives
+        result_dict["fp"] = false_positives
+        result_dict["fn"] = false_negatives
+        result_dict["tnt"] = nominal_seconds - false_positive_seconds
+        result_dict["nt"] = nominal_seconds
+        result_dict["tnrt"] = tnr
         return result_dict

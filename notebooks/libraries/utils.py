@@ -241,22 +241,22 @@ def interpolate_column_frequency_previous(dataframe: pd.DataFrame,
                                           sample_frequency: str = '30s') -> pd.DataFrame:
     # Crear un rango de tiempo con la frecuencia deseada
     time_index = pd.date_range(start=start_date, end=end_date, freq=sample_frequency)
-    
-    # # Asegurar que el índice del DataFrame sea de tipo datetime
-    # dataframe_copy = dataframe[(dataframe.index >= start_date) & (dataframe.index <= end_date)].copy()
-    # dataframe_copy.index = pd.to_datetime(dataframe_copy.index)
-    
+    combined_index = time_index.union(dataframe.index)
+
     # Crear un DataFrame con el rango de tiempo deseado
-    new_dataframe = pd.DataFrame(index=time_index)
-    
+    new_dataframe = pd.DataFrame(index=combined_index)
+
     # Agregar la columna a interpolar al nuevo DataFrame
     new_dataframe[column_name] = dataframe[column_name]
-    
+
     # Usar forward-fill para interpolar los valores faltantes
     new_dataframe[column_name] = new_dataframe[column_name].fillna(method='ffill')
 
     # Usar backward-fill para llenar valores iniciales faltantes
     new_dataframe[column_name] = new_dataframe[column_name].fillna(method='bfill')
+
+    # Mantener solo los valores cada sample_frequency
+    new_dataframe = new_dataframe.reindex(time_index)
 
     # Rename the index to 'time'
     new_dataframe.index.name = 'time'
