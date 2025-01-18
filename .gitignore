@@ -10,3 +10,7 @@ venv
 data/**
 !data/**/
 !data/**/*.gitkeep
+
+!metrics/metrics.csv
+!metrics/multiphases_training/*.csv
+wandb
